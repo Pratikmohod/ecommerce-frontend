@@ -52,7 +52,7 @@ const ProductDetails = () => {
         <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-10 items-center">
           <div className="w-full md:w-1/2 overflow-hidden rounded-2xl">
             <img
-              src={`${product.image}`}
+              src={`${BASEURL}${product.image}`}
               alt={product.name}
               className="w-full h-[260px] sm:h-[340px] md:h-[420px] object-cover rounded-2xl hover:scale-105 transition duration-500"
             />
@@ -72,7 +72,7 @@ const ProductDetails = () => {
             </p>
 
             <button
-              onClick={() => addToCart(product.id)}
+              onClick={handleAddToCart}
               className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 sm:px-7 py-3 rounded shadow-lg hover:shadow-2xl hover:scale-105 hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 font-semibold tracking-wide"
             >
               Add to Cart

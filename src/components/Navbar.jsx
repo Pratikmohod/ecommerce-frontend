@@ -27,7 +27,7 @@ const Navbar = () => {
           </span>
         </Link>
 
-        {/* HAMBURGER (MOBILE) */}
+        {/* HAMBURGER for(MOBILE) */}
         <button
           className="md:hidden text-white text-2xl"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -95,7 +95,7 @@ const Navbar = () => {
                 handleLogout();
                 setMenuOpen(false);
               }}
-              className="text-white text-left"
+              className="text-black font-bold text-2xl"
             >
               Logout
             </button>
