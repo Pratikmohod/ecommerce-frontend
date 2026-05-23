@@ -36,7 +36,7 @@ const CartPage = () => {
                   {item.product_image && (
                     <img
                       className="w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-xl shadow-md border border-gray-200 hover:scale-105 hover:shadow-xl transition duration-300"
-                      src={`${BASEURL}${item.product_image}`}
+                      src={`/products/${item.product_image.split("/").pop()}`}
                       alt={item.product_name}
                     />
                   )}

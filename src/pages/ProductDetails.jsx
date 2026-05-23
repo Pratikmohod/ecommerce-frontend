@@ -52,7 +52,7 @@ const ProductDetails = () => {
         <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-10 items-center">
           <div className="w-full md:w-1/2 overflow-hidden rounded-2xl">
             <img
-              src={`${BASEURL}${product.image}`}
+              src={`/products/${product.image.split("/").pop()}`}
               alt={product.name}
               className="w-full h-[260px] sm:h-[340px] md:h-[420px] object-cover rounded-2xl hover:scale-105 transition duration-500"
             />

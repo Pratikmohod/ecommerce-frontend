@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
       <div className="bg-white rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 p-4 cursor-pointer border border-gray-100 overflow-hidden group">
         <div className="overflow-hidden rounded-xl">
           <img
-            src={`${BASEURL}${product.image}`}
+            src={`/products/${product.image.split("/").pop()}`}
             alt={product.name}
             className="w-full h-72 object-cover rounded-xl group-hover:scale-105 transition duration-500"
           />
