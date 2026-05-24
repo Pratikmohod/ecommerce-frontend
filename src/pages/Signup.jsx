@@ -19,6 +19,16 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+    if (!passwordRegex.test(form.password)) {
+      setMessage(
+        "Password must contain 8+ characters, uppercase, lowercase, number and special character."
+      );
+      return;
+    }
+
     try {
       const response = await fetch(`${BASEURL}/api/register/`, {
         method: "POST",
@@ -32,10 +42,11 @@ const Signup = () => {
         setTimeout(() => nav("/login"), 1200);
       } else {
         setMessage(
+          data.username?.[0] ||
+          data.email?.[0] ||
+          data.password?.[0] ||
           data.non_field_errors?.[0] ||
-            data.username?.[0] ||
-            data.password?.[0] ||
-            "Signup Failed",
+          "Signup Failed",
         );
       }
     } catch (error) {
@@ -86,7 +97,7 @@ const Signup = () => {
             Create Account
           </button>
         </form>
-        {message && <p className="mt-3 text-sm text-red-700">{message}</p>}
+        {message && <p className={`mt-3 text-lg ${message.includes("Account created") ? "text-green-600" : "text-red-600"}`}>{message}</p>}
       </div>
     </div>
   );

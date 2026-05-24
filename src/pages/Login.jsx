@@ -32,7 +32,11 @@ const Login = () => {
                 setTimeout(()=>nav("/"),800);
 
             }else{
-                setMessage(data.detail || "invalid creadentials");
+                if (data.detail){
+                    setMessage("Wrong username or password");
+                } else {
+                    setMessage("Login failed")
+                }
 
             }
 
@@ -50,7 +54,7 @@ const Login = () => {
                 <input type="password" name='password' onChange={handleChange} value={form.password} placeholder='Password' className="w-full p-2 m-2 border rounded" />
                 <button className="w-full bg-blue-600 text-white py-2 m-2 rounded">Login</button>
             </form>
-            {message && <p className="mt-3 text-sm">{message}</p>}
+            <p className={`mt-3 text-lg ${message.includes("Successful") ?"text-green-600"  : "text-red-600"}`}>{message}</p>
             <div className="mt-4 text-sm">
                 Don't have an account?{" "}
                 <a href="/signup"> Sign up</a>
