@@ -57,7 +57,9 @@ const Login = () => {
             <p className={`mt-3 text-lg ${message.includes("Successful") ?"text-green-600"  : "text-red-600"}`}>{message}</p>
             <div className="mt-4 text-sm">
                 Don't have an account?{" "}
-                <a href="/signup"> Sign up</a>
+                <Link to="/signup" className='text-base font-bold text-blue-600'>
+                    Sign up
+                </Link>
             </div>
         </div>
     </div>
